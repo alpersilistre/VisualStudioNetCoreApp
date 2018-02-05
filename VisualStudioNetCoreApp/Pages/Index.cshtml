@@ -5,26 +5,29 @@
 }
 
 <form method="post">
+    
+    <h3>@Model.Message</h3>
+
     <table class="table">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+        </tr>
         </thead>
         <tbody>
-            @foreach (var customer in Model.Customers)
-            {
-                <tr>
-                    <td>@customer.Id</td>
-                    <td>@customer.Name</td>
-                    <td>
-                        <a asp-page="./Edit" asp-route-id="@customer.Id">Edit</a>
+        @foreach (var customer in Model.Customers)
+        {
+            <tr>
+                <td>@customer.Id</td>
+                <td>@customer.Name</td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@customer.Id">Edit</a>
 
-                        <button type="submit" asp-page-handler="delete" asp-route-id="@customer.Id">Delete</button>
-                    </td>
-                </tr>
-            }
+                    <button type="submit" asp-page-handler="delete" asp-route-id="@customer.Id">Delete</button>
+                </td>
+            </tr>
+        }
         </tbody>
     </table>
     <a asp-page="./Create">Create</a>
